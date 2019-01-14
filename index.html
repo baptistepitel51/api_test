@@ -27,41 +27,56 @@
 
                 <h2 style = "padding-bottom : 10px;">Home</h2>    
 
-                 <!-- Formulaire qui permet de récupérer l'accès d'un utilisateur sur une entreprise -->
+                 <!-- Formulaire qui permet de récupérer l'accès d'un utilisateur sur une entreprise 
+                        - Définition de la méthode du formulaire :  method="post" 
+                        - Appel de la méthode accessUser() dans le onSubmit : onSubmit="return accessUser()"                 
+                -->
+                 
                 <form class="form-horizontal" role="form"  method="post"  onSubmit="return accessUser()"  >
                     <div class="form-group mt-3" style =  "border-top : 2px solid black; padding-top : 10px">                       
                         <h4 style = "padding-bottom : 10px;">User Access</h4>                         
                         <label>User Id</label>
                         <div>
+                             <!-- Mise en place d'id : userId_1 qui sont utilisé dans la méthode accessUser() -->
                             <input type="text" class="form-control" id ="userId_1" name="userId_1" placeholder="User Id" required>
                         </div>
                         <label>Firm Id</label>
                         <div>
+                             <!-- Mise en place d'id : firmId_1 qui sont utilisé dans la méthode accessUser() -->
                             <input type="text" class="form-control" id ="firmId_1" name="firmId_1" placeholder="Firm Id" required>
                         </div>                       
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg btn-dark " style = "margin-top : 5px;"> Search </button>              
                 </form>
 
-                <!-- Div contenant l'accès de l'utilisateur retourné -->
+                <!-- Div contenant l'accès de l'utilisateur retourné                    
+                        - Mise en place d'id dans les paragraphes qui sont utilisé dans la méthode accessUser()
+                -->
                 <div>
                     <p id="p1">      </p>
                     <p id="p2">      </p>
                 </div>
 
-                <!-- Formulaire qui permet de récupérer la liste des entreprise d'un utilisateur -->
+                <!-- Formulaire qui permet de récupérer la liste des entreprise d'un utilisateur
+                        - Définition de la méthode du formulaire :  method="post" 
+                        - Appel de la méthode accessUser() dans le onSubmit : onSubmit="return allFirm()" 
+                
+                -->
                 <form class="form-horizontal" role="form" method="post" onSubmit="return allFirm()">
                     <div class="form-group mt-3" style =  "border-top : 2px solid black; padding-top : 10px">
                         <h4 style = "padding-bottom : 10px;">List Firm</h4>  
                         <label>User Id</label>
                         <div>
+                            <!-- Mise en place d'id : userId_2 qui sont utilisé dans la méthode allFirm() -->
                             <input type="text" class="form-control" id ="userId_2" name="userId_2" placeholder="User Id" required>
                         </div>                       
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg btn-dark" style = "margin-top : 5px;"> Search </button>              
                 </form>
 
-                <!-- Div contenant la liste des entreprise retourné -->
+                <!-- Div contenant la liste des entreprise retourné                     
+                        - Mise en place d'id dans les paragraphes qui sont utilisé dans la méthode allFirm()
+                -->
                 <div>
                     <p1 id="p3">    </p1>
                     <p2 id="p4">    </p2>

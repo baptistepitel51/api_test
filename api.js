@@ -119,7 +119,7 @@ function allFirm()
 
     // on recupère les paragraphe de l'html pour y intégrer les valeurs
     let status = document.getElementById("p3");
-    let paragraphe = document.getElementById("p4");
+    let result = document.getElementById("p4");
   
     /*
         Appel de la méthode ajaxPost qui s'occupe de la requête post
@@ -138,19 +138,19 @@ function allFirm()
         {
             // On écrit les valeurs dans les paragraphes récupérer auparavant
             status.innerHTML = "Status : " + response.status + "<br>";
-            paragraphe.innerHTML = "Resultat : " + response.message;
+            result.innerHTML = "Resultat : " + response.message;
         }
         else
         {
             // On écrit la valeur du status dans son paragraphe
             status.innerHTML = "Status : " + response.status + "<br>";  
             // On vide le paragraphe de la liste de l'entreprise
-            paragraphe.innerHTML ="";
+            result.innerHTML ="";
             // On effectue un forEach sur l'element JSON result pour récupérer la liste de l'entreprise
             response.result.forEach(function(element)
             {
                 // On écrit les valeurs des entreprises dans son paragraphe
-                paragraphe.innerHTML += "User : " + element.MSUSER + "  ---  Firm 1 : " + element.MSMCUF +  "  ----   Firm 2 : " + element.MSMCUT + "<br>";       
+                result.innerHTML += "User : " + element.MSUSER + "  ---  Firm 1 : " + element.MSMCUF +  "  ----   Firm 2 : " + element.MSMCUT + "<br>";       
             }); 
         }         
     });
