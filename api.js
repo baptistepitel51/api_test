@@ -16,8 +16,8 @@ function accessUser()
     console.log(url); 
     
     // on récupère les paragraphe de l'html pour y intégrer les valeurs 
-    var status = document.getElementById("p1");
-    var result = document.getElementById("p2");
+    let status = document.getElementById("p1");
+    let result = document.getElementById("p2");
 
     /*
         Appel de la méthode ajaxPost qui s'occupe de la requête post
@@ -118,8 +118,8 @@ function allFirm()
     console.log(url);
 
     // on recupère les paragraphe de l'html pour y intégrer les valeurs
-    var status = document.getElementById("p3");
-    var paragraphe = document.getElementById("p4");
+    let status = document.getElementById("p3");
+    let paragraphe = document.getElementById("p4");
   
     /*
         Appel de la méthode ajaxPost qui s'occupe de la requête post
@@ -153,6 +153,8 @@ function allFirm()
                 paragraphe.innerHTML += "User : " + element.MSUSER + "  ---  Firm 1 : " + element.MSMCUF +  "  ----   Firm 2 : " + element.MSMCUT + "<br>";       
             }); 
         }   
+
+      
     });
       // On retourne false pour éviter le rechargement de la page ce qui permet de garder l'affichage
     return false;
