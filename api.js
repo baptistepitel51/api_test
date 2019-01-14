@@ -56,7 +56,7 @@ function accessUser()
 // Méthode qui s'occupe de la requête post  pour aller chercher l'accès de l'utilisateur
 /**
  * 
- * @param {string} url Url de la requête 
+ * @param {string} url Url de l'API 
  * @param {string} userId Id de l'utilisateur sous forme de chaine de caractère
  * @param {string} firmId Id de l'entreprise sous forme de chaine de caractère
  * @param {function} callback Méthode callback 
@@ -165,7 +165,7 @@ function allFirm()
 // Méthode qui s'occupe de la requête post pour récupérer la liste d'entreprise de l'utilisateur
 /**
  * 
- * @param {string} url Url de la requête 
+ * @param {string} url Url de l'API 
  * @param {string} userId Id de l'utilisateur sous forme de chaine de caractère
  * @param {function} callback Méthode callback 
  */
