@@ -16,8 +16,8 @@ function accessUser()
     console.log(url); 
     
     // on recupère les paragraphe de l'html pour y intégrer les valeurs 
-    var status = document.getElementById("p1");
-    var result = document.getElementById("p2");
+    var status = document.getElementById("p2");
+    var result = document.getElementById("p3");
 
     /*
         Appel de la méthode ajaxPost qui s'occupe de la requête post
@@ -29,10 +29,21 @@ function accessUser()
      ajaxPost(url, userId , firmId, (response) => 
     {
         // On transforme la réponse de la méthode ajaxPost en JSON.
-        response  = JSON.parse(response);        
+        response  = JSON.parse(response);   
+        
+        if(response.status == "error")
+        {
+            status.innerHTML = "Status : " + response.status + "<br>";
+            result.innerHTML = "Resultat : " + response.message;
+        }
+        else
+        {
+            status.innerHTML = "Status : " + response.status + "<br>";
+            result.innerHTML = "Resultat : " + response.result;
+        }
+
         // On ecrit les valeurs dans les paragraphes récupérer auparavant
-        status.innerHTML = "Status : " + response.status + "<br>";
-        result.innerHTML = "Resultat : " + response.result;
+       
     });    
     // On retourne false pour éviter le rechargement de la page ce qui permet de garder l'affichage
     return false;
@@ -121,16 +132,25 @@ function allFirm()
      {
         // On transforme la réponse de la méthode ajaxPost en JSON.
         response  = JSON.parse(response);
-        // On ecrit la valeur du status dans son paragraphe
-        status.innerHTML = "Status : " + response.status + "<br>";  
-        // On vide le paragraphe de la liste de l'entreprise
-        paragraphe.innerHTML ="";
-        // On effectue un forEach sur l'element JSON result pour récupérer la liste de l'entreprise
-        response.result.forEach(function(element)
+
+        if(response.status == "error")
         {
-            // On ecrit les valeur des entreprises dans son paragraphe
-            paragraphe.innerHTML += "User : " + element.MSUSER + "  ---  Firm 1 : " + element.MSMCUF +  "  ----   Firm 2 : " + element.MSMCUT + "<br>";       
-        });    
+            status.innerHTML = "Status : " + response.status + "<br>";
+            paragraphe.innerHTML = "Resultat : " + response.message;
+        }
+        else
+        {
+            // On ecrit la valeur du status dans son paragraphe
+            status.innerHTML = "Status : " + response.status + "<br>";  
+            // On vide le paragraphe de la liste de l'entreprise
+            paragraphe.innerHTML ="";
+            // On effectue un forEach sur l'element JSON result pour récupérer la liste de l'entreprise
+            response.result.forEach(function(element)
+            {
+                // On ecrit les valeur des entreprises dans son paragraphe
+                paragraphe.innerHTML += "User : " + element.MSUSER + "  ---  Firm 1 : " + element.MSMCUF +  "  ----   Firm 2 : " + element.MSMCUT + "<br>";       
+            }); 
+        }   
     });
       // On retourne false pour éviter le rechargement de la page ce qui permet de garder l'affichage
     return false;
