@@ -15,7 +15,7 @@ function accessUser()
     console.log(firmId);
     console.log(url); 
     
-    // on recupère les paragraphe de l'html pour y intégrer les valeurs 
+    // on récupère les paragraphe de l'html pour y intégrer les valeurs 
     var status = document.getElementById("p1");
     var result = document.getElementById("p2");
 
@@ -34,13 +34,13 @@ function accessUser()
         // On vérifie si le status est égale à error
         if(response.status == "error")
         {
-            // On ecrit les valeurs dans les paragraphes récupérer auparavant
+            // On écrit les valeurs dans les paragraphes récupérer auparavant
             status.innerHTML = "Status : " + response.status + "<br>";
             result.innerHTML = "Resultat : " + response.message;
         }
         else
         {
-            // On ecrit les valeurs dans les paragraphes récupérer auparavant
+            // On écrit les valeurs dans les paragraphes récupérer auparavant
             status.innerHTML = "Status : " + response.status + "<br>";
             result.innerHTML = "Resultat : " + response.result;
         }    
@@ -53,7 +53,7 @@ function accessUser()
 
 
 
-// Méthode qui s'occupe de la requête post  pour allez chercher l'accès de l'utilisateur
+// Méthode qui s'occupe de la requête post  pour aller chercher l'accès de l'utilisateur
 /**
  * 
  * @param {string} url Url de la requête 
@@ -76,13 +76,13 @@ function ajaxPost(url, userId, firmId, callback)
     */
     req.send("userId=" + userId + "&firmId= "+firmId);
     
-    // On execute la fonction quand la requête est complète
+    // On exécute la fonction quand la requête est complète
     req.onload = function()
     {
         // On verifie si le status de la requête est correcte
         if (req.status == 200) 
         {   
-            //Appelle de la méthode callback mis en paramètre
+            //Appel de la méthode callback mis en paramètre
             callback(req.responseText); 
         } 
         else
@@ -91,7 +91,7 @@ function ajaxPost(url, userId, firmId, callback)
             console.error(req.status + " " + req.statusText + " " + url);
         }
     };
-    // On executte cette fonction si cela renvoir une error avec le serveur
+    // On exécute cette fonction si cela renvoie une erreur avec le serveur
     req.error = function()
     {
         // Message d'erreur
@@ -108,7 +108,7 @@ function ajaxPost(url, userId, firmId, callback)
 // Méthode qui permet de récupérer la liste d'entreprise d'un utilisateur 
 function allFirm()
 {
-    // on récupère les valeurs du formulaire
+    // On récupère les valeurs du formulaire
     let userId = document.getElementById('userId_2').value;
     // Création du lien de l'API
     let url = 'http://localhost:8080/api/v1/user/firm';
@@ -136,20 +136,20 @@ function allFirm()
         // On vérifie si le status est égale à error
         if(response.status == "error")
         {
-            // On ecrit les valeurs dans les paragraphes récupérer auparavant
+            // On écrit les valeurs dans les paragraphes récupérer auparavant
             status.innerHTML = "Status : " + response.status + "<br>";
             paragraphe.innerHTML = "Resultat : " + response.message;
         }
         else
         {
-            // On ecrit la valeur du status dans son paragraphe
+            // On écrit la valeur du status dans son paragraphe
             status.innerHTML = "Status : " + response.status + "<br>";  
             // On vide le paragraphe de la liste de l'entreprise
             paragraphe.innerHTML ="";
             // On effectue un forEach sur l'element JSON result pour récupérer la liste de l'entreprise
             response.result.forEach(function(element)
             {
-                // On ecrit les valeur des entreprises dans son paragraphe
+                // On écrit les valeurs des entreprises dans son paragraphe
                 paragraphe.innerHTML += "User : " + element.MSUSER + "  ---  Firm 1 : " + element.MSMCUF +  "  ----   Firm 2 : " + element.MSMCUT + "<br>";       
             }); 
         }   
@@ -162,7 +162,7 @@ function allFirm()
 
 
 
-// Méthode qui s'occupe de la requête post pour recupérer la liste d'entreprise de l'utilisateur
+// Méthode qui s'occupe de la requête post pour récupérer la liste d'entreprise de l'utilisateur
 /**
  * 
  * @param {string} url Url de la requête 
@@ -182,13 +182,13 @@ function ajaxPost2(url, userId, callback)
             userId : Id de l'utilisateur
     */
     req.send("userId=" + userId);
-    // On execute la fonction quand la requête est complète
+    // On exécute la fonction quand la requête est complète
     req.onload = function()
     {
         // On verifie si le status de la requête est correcte
         if (req.status == 200) 
         {      
-            //Appelle de la méthode callback mis en paramètre
+            //Appel de la méthode callback mis en paramètre
             callback(req.responseText);
         } 
         else
@@ -197,7 +197,7 @@ function ajaxPost2(url, userId, callback)
             console.error(req.status + " " + req.statusText + " " + url);
         }
     };
-    // On executte cette fonction si cela renvoir une error avec le serveur
+    // On exécute cette fonction si cela renvoie une erreur avec le serveur
     req.error = function()
     {
         // Message d'erreur
