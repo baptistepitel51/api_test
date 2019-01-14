@@ -152,9 +152,7 @@ function allFirm()
                 // On écrit les valeurs des entreprises dans son paragraphe
                 paragraphe.innerHTML += "User : " + element.MSUSER + "  ---  Firm 1 : " + element.MSMCUF +  "  ----   Firm 2 : " + element.MSMCUT + "<br>";       
             }); 
-        }   
-
-      
+        }         
     });
       // On retourne false pour éviter le rechargement de la page ce qui permet de garder l'affichage
     return false;
