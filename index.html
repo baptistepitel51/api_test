@@ -1,0 +1,81 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Site Test </title>
+         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Menu</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                 <li class="nav-item ">
+                  <a class="nav-link" href="/">Home</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+
+        <div class="jumbotron mx-5" style = "margin-top  : 80px;">
+
+                <h2 style = "padding-bottom : 10px;">Home</h2>    
+
+                 <!-- Formulaire qui permet de récupérer l'accès d'un utilisateur sur une entreprise -->
+                <form class="form-horizontal" role="form" id="form" method="post"  onSubmit="return accessUser()"  >
+                    <div class="form-group mt-3" style =  "border-top : 2px solid black; padding-top : 10px">                       
+                        <h4 style = "padding-bottom : 10px;">User Access</h4>                         
+                        <label>User Id</label>
+                        <div>
+                            <input type="text" class="form-control" id ="userId_1" name="userId_1" placeholder="User Id" required>
+                        </div>
+                        <label>Firm Id</label>
+                        <div>
+                            <input type="text" class="form-control" id ="firmId_1" name="firmId_1" placeholder="Firm Id" required>
+                        </div>                       
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-dark" style = "margin-top : 5px;"> Search </button>              
+                </form>
+
+                <!-- Div contenant l'accès de l'utilisateur retourné -->
+                <div id="b">
+                    <p1 id="p1">      </p1>
+                    <p2 id="p2">      </p2>
+                </div>
+
+                <!-- Formulaire qui permet de récupérer la liste des entreprise d'un utilisateur -->
+                <form class="form-horizontal" role="form" method="post" onSubmit="return allFirm()">
+                    <div class="form-group mt-3" style =  "border-top : 2px solid black; padding-top : 10px">
+                        <h4 style = "padding-bottom : 10px;">List Firm</h4>  
+                        <label>User Id</label>
+                        <div>
+                            <input type="text" class="form-control" id ="userId_2" name="userId_2" placeholder="User Id" required>
+                        </div>                       
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-dark" style = "margin-top : 5px;"> Search </button>
+                </form>
+
+                <!-- Div contenant la liste des entreprise retourné -->
+                <div id="a">
+                    <p1 id="p3">    </p1>
+                    <p2 id="p4">    </p2>
+                </div>
+        </div>
+
+       <footer class="footer mt-auto py-3 bg-dark">    
+            <div class="footer-copyright  text-center  " style = "color:white">© 2018 Copyright:
+                <a href="https://www.nakan.com/"> Nakan.com</a>
+            </div>        
+         </footer>
+    
+         <!-- Script JQuery et Api -->
+         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> 
+        <script src = "./api.js"></script>
+    </body>
+</html>
