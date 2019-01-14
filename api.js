@@ -31,19 +31,19 @@ function accessUser()
         // On transforme la réponse de la méthode ajaxPost en JSON.
         response  = JSON.parse(response);   
         
+        // On vérifie si le status est égale à error
         if(response.status == "error")
         {
+            // On ecrit les valeurs dans les paragraphes récupérer auparavant
             status.innerHTML = "Status : " + response.status + "<br>";
             result.innerHTML = "Resultat : " + response.message;
         }
         else
         {
+            // On ecrit les valeurs dans les paragraphes récupérer auparavant
             status.innerHTML = "Status : " + response.status + "<br>";
             result.innerHTML = "Resultat : " + response.result;
-        }
-
-        // On ecrit les valeurs dans les paragraphes récupérer auparavant
-       
+        }    
     });    
     // On retourne false pour éviter le rechargement de la page ce qui permet de garder l'affichage
     return false;
@@ -133,8 +133,10 @@ function allFirm()
         // On transforme la réponse de la méthode ajaxPost en JSON.
         response  = JSON.parse(response);
 
+        // On vérifie si le status est égale à error
         if(response.status == "error")
         {
+            // On ecrit les valeurs dans les paragraphes récupérer auparavant
             status.innerHTML = "Status : " + response.status + "<br>";
             paragraphe.innerHTML = "Resultat : " + response.message;
         }
